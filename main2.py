@@ -16,7 +16,7 @@ INITIAL_VELOCITY = 3
 FRICTION = 0.9
 SCREEN_TITLE = "Gravity and Bouncing Exercise"
 
-GRAVITY = 0 #update this value
+GRAVITY = -100 #update this value
 
 
 class Ball():
@@ -36,25 +36,25 @@ class Ball():
         self.y += self.dy
         if self.x <= MARGIN:
             self.x = MARGIN
-            #bounce dx
+            self.dx = self.dx * -1 #bounce dx
 
             self.dx *= FRICTION
             self.dy *= FRICTION
         if self.x >= SCREEN_WIDTH - MARGIN:
             self.x = SCREEN_WIDTH - MARGIN
-            #bounce dx
+            self.dx = self.dx * -1 #bounce dx
 
             self.dx *= FRICTION
             self.dy *= FRICTION
         if self.y <= MARGIN:
             self.y = MARGIN
-            #bounce dy
+            self.dy = self.dy * -1 #bounce dy
 
             self.dx *= FRICTION
             self.dy *= FRICTION
         if self.y >= SCREEN_HEIGHT - MARGIN:
             self.y = SCREEN_HEIGHT - MARGIN
-            #bounce dy
+            self.dy = self.dy * -1 #bounce dy
 
             self.dx *= FRICTION
             self.dy *= FRICTION
